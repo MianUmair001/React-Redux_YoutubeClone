@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     name: Build & Deployment
-    runs-on: ubuntu-latest
+    runs-on: darwin
 
     steps:
       - name: get the Source Code
