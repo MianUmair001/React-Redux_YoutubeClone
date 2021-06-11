@@ -5,6 +5,7 @@ import { FaBars } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdNotifications, MdApps } from "react-icons/md";
 import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
 const Header = ({ handleToogleSidebar }) => {
   const [input, setInput] = useState("");
   const history = useHistory();
@@ -13,6 +14,9 @@ const Header = ({ handleToogleSidebar }) => {
 
     history.push(`/search/${input}`);
   };
+
+  const { photoURL } = useSelector((state) => state.auth?.user);
+
   return (
     <div className="border border-dark header">
       <FaBars
@@ -39,10 +43,7 @@ const Header = ({ handleToogleSidebar }) => {
       <div className="header__icons">
         <MdNotifications size={28} />
         <MdApps size={28} />
-        <img
-          src="https://toppng.com/public/uploads/preview/cool-avatar-transparent-image-cool-boy-avatar-11562893383qsirclznyw.png"
-          alt="user_avatar"
-        />
+        <img src={photoURL} alt="user_avatar" />
       </div>
     </div>
   );
